@@ -1,0 +1,27 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "rails",
+    "database": "postgres",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "test": {
+    "username": "postgres",
+    "password": "rails",
+    "database": "postgres",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "rails",
+    "database": "postgres",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}
