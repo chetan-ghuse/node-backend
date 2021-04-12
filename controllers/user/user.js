@@ -15,6 +15,10 @@ const getUser = (req, res) => {
   userService.getUser(req, res);
 }
 
+const getProfileDetails = (req, res) => {
+  userService.getProfileDetails(req, res);
+}
+
 const deleteUser = (req, res) => {
   userService.deleteUser(req, res);
 }
@@ -46,6 +50,7 @@ const mainPage = (req, res) => {
 module.exports = {
   getUsers,
   getUser,
+  getProfileDetails,
   deleteUser,
   unauthorized,
   addUser,

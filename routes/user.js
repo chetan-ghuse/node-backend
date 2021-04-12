@@ -6,6 +6,7 @@ module.exports.route = () => {
 	router.all('/',userController.mainPage);
   // router.get('/users', userController.getUsers);
   router.get('/users', authenticate, userController.getUsers);
+  router.get('/profileDetails', authenticate, getUserId, userController.getProfileDetails);
   router.get('/user/:userEmail', authenticate, getUserId, userController.getUser);
   router.get('/unauthorized', userController.unauthorized);
   

@@ -85,6 +85,39 @@ const getUser = async (req, res) => {
 }
 
 /*
+ * Description: To get user profile details.
+ *  if userId is present then user details are returned
+ * Output: return object containing user info which includes- 
+ *  1. id,
+ *  2. firstName,
+ *  3. lastName,
+ *  4. emailId 
+ *  5. createdAt 
+*/
+
+const getProfileDetails = async (req, res) => {
+  let userFound;
+  try {
+    userFound = await User.findOne({ 
+      where: { id: req.body.userId },
+      attributes: ['id', 'firstName', 'lastName', 'emailId', 'createdAt']
+    })
+    if (!userFound) {
+      return res.status(200).send({
+        'error': true, 'msg': 'Permission denied', 'response': null
+      })
+    }
+    res.status(200).send({
+      'error': false, 'msg': 'profile details are fetched', 'response': userFound
+    })
+  } catch (error) {
+    res.status(400).send({
+      'error': true, 'msg': error.message, 'response': null
+    });
+  }
+}
+
+/*
  * Description: For registration of new user on the blog site.
  *   The function first check whether provided emailId is present in User table, 
  *   if emailId is not present then new entry is made for user into User table
@@ -305,6 +338,7 @@ const logoutUser = (req, res) => {
 module.exports = {
   getUsers,
   getUser,
+  getProfileDetails,
   addUser,
   deleteUser,
   unauthorized,
