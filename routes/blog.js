@@ -4,8 +4,35 @@ const uploadFiles = require('../utils/uploadPhoto').uploadFiles;
 const getUserId = require('../utils/method-helper').getUserId;
 
 module.exports.route = () => {
-  router.post('/addBlog', authenticate, uploadFiles, getUserId, blogController.addBlog) 
-  router.post('/userBlog', authenticate, getUserId, blogController.userBlog)
-  router.post('/usersBlog', authenticate, getUserId, blogController.usersBlog)
-  router.delete('/deleteBlog', authenticate, getUserId, blogController.deleteBlog)
-}
+  router.post(
+    '/addBlog',
+    authenticate,
+    uploadFiles,
+    getUserId,
+    blogController.addBlog
+  );
+  router.post(
+    '/userBlog',
+    authenticate,
+    getUserId,
+    blogController.userBlog
+  );
+  router.post(
+    '/usersBlog',
+    authenticate,
+    getUserId,
+    blogController.usersBlog
+  );
+  router.post(
+    '/updateBlog',
+    authenticate,
+    getUserId,
+    blogController.updateBlog
+  );
+  router.delete(
+    '/deleteBlog',
+    authenticate,
+    getUserId,
+    blogController.deleteBlog
+  );
+};

@@ -264,7 +264,7 @@ const updateUser = async (req, res) => {
     await userFound.update({
       firstName: req.body.firstName || userFound.firstName,
       lastName: req.body.lastName || userFound.lastName,
-      password: bcrypt.hashSync(req.body.password, 5) || userFound.password,
+      password: req.body.password ? bcrypt.hashSync(req.body.password || '', 5) : userFound.password,
       updatedAt: new Date(Date.now())
     })
     res.status(200).send({

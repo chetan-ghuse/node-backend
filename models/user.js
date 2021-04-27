@@ -7,22 +7,22 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.TEXT
   }, {});
   user.associate = function(models) {
-      user.hasMany(models.blog, {
-        foreignKey: 'userId',
-        as: 'blogItems',
-      });
-      user.hasMany(models.comment, {
-        foreignKey: 'userId',
-        as: 'commentUserItems',
-      });
-      user.hasMany(models.like, {
-        foreignKey: 'userId',
-        as: 'likeItems',
-      });
-      user.hasMany(models.report, {
-        foreignKey: 'userId',
-        as: 'reportItems',
-      });
+    user.hasMany(models.blog, {
+      foreignKey: 'userId',
+      as: 'blogItems',
+    });
+    user.hasMany(models.comment, {
+      foreignKey: 'userId',
+      as: 'commentUserItems',
+    });
+    user.hasMany(models.like, {
+      foreignKey: 'userId',
+      as: 'likeItems',
+    });
+    user.hasMany(models.report, {
+      foreignKey: 'userId',
+      as: 'reportItems',
+    });
   };
   return user;
 };
